@@ -39,8 +39,9 @@ if (isProduction) {
   });
 }
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+const HOST = isProduction ? '0.0.0.0' : 'localhost';
+app.listen(Number(PORT), HOST, () => {
+  console.log(`Server running on http://${HOST}:${PORT}`);
   if (isProduction) {
     console.log('Serving frontend static files');
   }

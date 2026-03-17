@@ -26,12 +26,10 @@ COPY --from=frontend-build /app/frontend/dist ./frontend/dist
 COPY .env.example ./.env
 
 ENV NODE_ENV=production
-ENV PORT=3001
 ENV DATABASE_PATH=/app/data/todo.db
 
 RUN mkdir -p /app/data
 
-# Run migrations then start server
-CMD cd /app/db && npx tsx migrate.ts && cd /app/backend && npx tsx src/index.ts
-
 EXPOSE 3001
+
+CMD sh -c "cd /app/db && node --import tsx/esm migrate.ts && cd /app/backend && node --import tsx/esm src/index.ts"
