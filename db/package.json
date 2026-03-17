@@ -1,0 +1,20 @@
+{
+  "name": "todomaster-db",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "migrate": "tsx migrate.ts",
+    "seed": "tsx seed.ts"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.39.0",
+    "@libsql/client": "^0.14.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "tsx": "^4.19.0",
+    "typescript": "~5.7.0"
+  }
+}
