@@ -6,7 +6,7 @@ import type { Priority } from '../../types';
 export function TodoFilters() {
   const { filters, setFilters, fetchTodos } = useTodos();
   const [search, setSearch] = useState(filters.search || '');
-  const debounceRef = useRef<ReturnType<typeof setTimeout>>();
+  const debounceRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   useEffect(() => {
     return () => {
